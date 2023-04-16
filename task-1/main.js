@@ -16,7 +16,7 @@ const queue = getQueueFromLocalStorage()
 function enqueue(){
     const newElement = createQueueElement(input.value)
     queue.unshift(newElement)
-    queue.forEach(element => queueList.prepend(element))
+    queue.forEach(element => queueList.append(element))
     input.value = ''
     removeBtn.removeAttribute('disabled')
     if(queue.length === 19){
@@ -29,9 +29,9 @@ function enqueue(){
 }
 
 function dequeue(){
-    queue.splice(0, 1)
+    queue.splice(queue.length - 1, 1)
     queueList.innerHTML = ''
-    queue.forEach(element => queueList.prepend(element))
+    queue.forEach(element => queueList.append(element))
     if(queue.length === 0){
         removeBtn.setAttribute('disabled', 'true')
     }else{
@@ -53,7 +53,7 @@ function saveQueueToLocalStorage(){
     }else{
         let items = []
         for(let item of queueList.children){
-            items.push(item.textContent)
+            items.unshift(item.textContent)
         }
         localStorage.setItem('queue', JSON.stringify(items))
     }
@@ -68,7 +68,7 @@ function getQueueFromLocalStorage(){
             const newElement = createQueueElement(item)
             newQueue.unshift(newElement)
         }
-        newQueue.forEach(element => queueList.prepend(element))
+        newQueue.forEach(element => queueList.append(element))
         removeBtn.removeAttribute('disabled')
         if(newQueue.length === 19){
             input.setAttribute('disabled', 'true')
