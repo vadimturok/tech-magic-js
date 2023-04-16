@@ -4,7 +4,10 @@ const removeBtn = document.querySelector('.form__button-remove')
 const input = document.querySelector('input')
 
 const newElementStyles = `
-    border: 1px solid black;
+    border: 2px solid cornflowerblue;
+    border-radius: 10px;
+    background-color: rgba(100, 149, 237, 0.24);
+    color: cornflowerblue;
     padding: 10px;
     font-weight: bold;
     font-size: 20px;
@@ -79,7 +82,7 @@ function getQueueFromLocalStorage(){
     }
 }
 
-function onChange(e){
+function onInputChange(e){
     if(e.target.value.length === 0){
         addBtn.setAttribute('disabled', 'true')
     }else{
@@ -87,13 +90,25 @@ function onChange(e){
     }
 }
 
-function onPressEnterKey(e){
+function onInputPressEnterKey(e){
     if(e.key === 'Enter' && e.target.value.length !== 0){
         enqueue()
     }
 }
 
+function onInputFocus(e) {
+    input.style.border = '1px solid gray';
+    input.style.backgroundColor = 'whitesmoke';
+}
+
+function onInputBlur(e){
+    input.style.removeProperty('border');
+    input.style.removeProperty('backgroundColor');
+}
+
 addBtn.addEventListener('click', enqueue)
 removeBtn.addEventListener('click', dequeue)
-input.addEventListener('keyup', onChange)
-input.addEventListener('keypress',  onPressEnterKey)
+input.addEventListener('keyup', onInputChange)
+input.addEventListener('keypress',  onInputPressEnterKey)
+input.addEventListener('focus', onInputFocus)
+input.addEventListener('blur', onInputBlur)

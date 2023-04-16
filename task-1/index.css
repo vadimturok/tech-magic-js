@@ -14,8 +14,10 @@
 
 .queue{
     margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
+    gap: 5px;
     align-items: center;
 }
 
@@ -59,7 +61,7 @@
 
 .form__buttons{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .form__button{
@@ -69,7 +71,7 @@
     font-size: 15px;
     border-radius: 10px;
     color: white;
-    width: 45%;
+    width: 20%;
 }
 
 .form__button:hover{
@@ -93,5 +95,11 @@
     .main{
         width: 100%;
         padding: 20px;
+    }
+    .form__buttons{
+        justify-content: space-between;
+    }
+    .form__button{
+        width: 45%;
     }
 }
