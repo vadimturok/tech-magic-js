@@ -8,6 +8,7 @@ const newElementStyles = `
     padding: 10px;
     font-weight: bold;
     font-size: 20px;
+    width: fit-content;
 `
 
 const queue = getQueueFromLocalStorage()
