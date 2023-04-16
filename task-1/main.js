@@ -18,7 +18,7 @@ function enqueue(){
     queue.forEach(element => queueList.prepend(element))
     input.value = ''
     removeBtn.removeAttribute('disabled')
-    if(queue.length === 5){
+    if(queue.length === 19){
         addBtn.setAttribute('disabled', 'true')
         input.setAttribute('disabled', 'true')
     }else{
@@ -69,7 +69,7 @@ function getQueueFromLocalStorage(){
         }
         newQueue.forEach(element => queueList.prepend(element))
         removeBtn.removeAttribute('disabled')
-        if(newQueue.length === 5){
+        if(newQueue.length === 19){
             input.setAttribute('disabled', 'true')
         }
         return newQueue
