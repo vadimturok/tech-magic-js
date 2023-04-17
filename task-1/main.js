@@ -102,7 +102,7 @@ function onInputFocus(e) {
 }
 
 function onInputBlur(e){
-    input.style.removeProperty('border');
+    input.style.border = '1px solid #f1f1f1'
     input.style.removeProperty('backgroundColor');
 }
 
